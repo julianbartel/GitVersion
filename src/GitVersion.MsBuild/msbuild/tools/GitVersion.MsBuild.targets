@@ -13,7 +13,7 @@
         <WriteVersionInfoToBuildLog SolutionDirectory="$(GitVersionPath)" VersionFile="$(GitVersionOutputFile)" />
     </Target>
 
-    <Target Name="GetVersion" DependsOnTargets="RunGitVersion" BeforeTargets="$(GitVersionTargetsBefore)">
+    <Target Name="GetVersion" DependsOnTargets="RunGitVersion" BeforeTargets="$(GitVersionTargetsBefore)" Condition="$(GetVersion) == 'true'">
 
         <GetVersion SolutionDirectory="$(GitVersionPath)" VersionFile="$(GitVersionOutputFile)">
             <Output TaskParameter="Major" PropertyName="GitVersion_Major" />
